@@ -3,19 +3,19 @@ pkgname=waylandpp
 pkgver=0.2.3
 pkgrel=1
 pkgdesc='Wayland C++ bindings'
-arch=('i686' 'x86_64' 'armv5' 'armv6' 'armv7' 'armv8')
+arch=('x86_64')
 url='https://github.com/NilsBrause/waylandpp'
-licanse=('MIT' 'GPL3')
+license=('MIT' 'GPL3')
 depends=(wayland)
 conflicts=(waylandpp-git)
-makedepends=(cmake)
+makedepends=(cmake egl-wayland)
 source=("https://github.com/NilsBrause/waylandpp/archive/$pkgver.zip")
-md5sums=('b6933ee128b5241bcbff652c5116e762')
+sha512sums=('ea801c4cc3fbfbeacbed1dee2545556bbdbcf750edb79147292306a47c4e29f57cf0a9f27a4b36a66caef04385bfa9b8c89c311ca749d7869d9ee49de5fd7751')
 
 build()
 {
     cd $pkgname-$pkgver
-    rm -rf build
+    [[ -d build ]] && rm -rf build
     mkdir build
     cd build
     # lib64 is a symlink to lib on archlinux.
@@ -27,10 +27,4 @@ package()
 {
     cd $pkgname-$pkgver/build
     DESTDIR="$pkgdir" make install
-    cd ..
-    rm -r build
 }
-
-# Local Variables:
-# mode: shell-script
-# End:
