@@ -1,16 +1,17 @@
-# Maintainer: Nils Christopher Brause <nilschrbrause@googlemail.com>
+# Maintainer: BlackIkeEagle <ike DOT devolder AT gmail DOT com>
+# Contributor: Nils Christopher Brause <nilschrbrause@googlemail.com>
 pkgname=waylandpp
-pkgver=0.2.3
+pkgver=0.2.5
 pkgrel=1
 pkgdesc='Wayland C++ bindings'
 arch=('x86_64')
 url='https://github.com/NilsBrause/waylandpp'
 license=('MIT' 'GPL3')
-depends=(wayland)
+depends=(wayland 'pugixml')
 conflicts=(waylandpp-git)
 makedepends=(cmake egl-wayland)
 source=("https://github.com/NilsBrause/waylandpp/archive/$pkgver.zip")
-sha512sums=('ea801c4cc3fbfbeacbed1dee2545556bbdbcf750edb79147292306a47c4e29f57cf0a9f27a4b36a66caef04385bfa9b8c89c311ca749d7869d9ee49de5fd7751')
+sha512sums=('d23e65bdf3daf622aea053a63b2a3f257b66b5537a1f84e9981eb9b8deda5f9d70a08ab2acccbf103a3b6205c24cd947053b85236d675dfe6004249ebb83b86d')
 
 build()
 {
